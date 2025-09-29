@@ -20,7 +20,7 @@ torch.manual_seed(1337)
 
 
 # read it in to inspect it
-with open('/data/little-shakespear/input.txt', 'r', encoding='utf-8') as f:
+with open('../data/little-shakespear/input.txt', 'r', encoding='utf-8') as f:
     text = f.read()
 
 
@@ -63,7 +63,7 @@ def estimate_loss():
     model.train()
     return out
 
-model = GPTLanguageModel()
+model = GPTLanguageModel(vocab_size)
 m = model.to(device)
 # print the number of parameters in the model
 print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
@@ -86,3 +86,7 @@ for iter in range(max_iters):
     optimizer.zero_grad(set_to_none=True)
     loss.backward()
     optimizer.step()
+
+# save the model
+torch.save(model.state_dict(), '../__pycache__/gpt_model.pth')
+print("Model saved to __pycache__/gpt_model.pth")
