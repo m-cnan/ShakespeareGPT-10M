@@ -1,5 +1,9 @@
 # ShakespeareGPT-10M
 
+<div align="center">
+  <img src="ShakeAI.png" alt="ShakeAI - Shakespeare meets AI" width="400"/>
+</div>
+
 A small-scale GPT language model trained on Shakespeare's works, built from scratch using PyTorch. This implementation features a transformer architecture with approximately 10 million parameters, designed to generate text in the style of Shakespeare.
 
 ## 🎭 Overview
